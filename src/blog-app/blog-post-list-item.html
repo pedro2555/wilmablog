@@ -1,10 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
-<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
-<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
-<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
-
-<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
 
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 
@@ -13,20 +9,54 @@
     <style>
       :host {
         display: block;
+        position: relative;
+        max-width: 500px;
+        max-height: 500px;
 
-        height: 100%;
-
-        background-attachment: fixed;
-        background-size: cover;
-        background-repeat: no-repeat;
+        overflow: hidden;
+        font-family: Georgia;
       }
+      a {
+        display: block;
+        max-width: 500px;
+        max-height: 500px;
+      }
+      a:hover #title {
+        bottom: 0;
+      }
+      iron-image {
+        top: 0;
 
+        width: 500px;
+        height: 500px;
+
+        z-index: -1;
+      }
+      #title {
+        bottom: -20%;
+        position: absolute;
+
+        width: 476px;
+        padding: 12px 0 50px 24px;
+
+        background-color:  black;
+        color: white;
+
+        transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #title h1 {
+        display: block;
+      }
     </style>
-
-    <div class="card-container">
-      <div class="card-content">
+    <a href="https://www.google.com/">
+      <div id="title">
+        <h1>6 Ferramentas para procurar emprego que você provavelmente ignora</h1>
       </div>
-    </div>
+      <iron-image alt="image alt text"
+                  src="http://dicasdemprego.com/wp-content/uploads/2018/04/olu-eletu-134758-unsplash-1024x654.jpg"
+                  sizing="cover">
+      </iron-image>
+    </a>
   </template>
 
   <script>
