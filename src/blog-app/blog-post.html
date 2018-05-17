@@ -1,0 +1,118 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+
+<dom-module id="blog-post">
+  <template>
+    <style>
+      :host {
+        display: block;
+
+        height: 100%;
+
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      app-header {
+        color: black;
+        --app-header-background-rear-layer: {
+          background-color: white;
+        };
+      }
+
+      app-toolbar {
+      }
+
+      .card-container {
+        position: relative;
+        width: 720px;
+        margin: 15vh auto 40px;
+      }
+      @media (max-width: 720px) {
+        .card-container {
+          width: 100%;
+          margin: 0 0 0 0;
+        }
+      }
+
+      .card-content {
+        color: white;
+        background-color:  rgba(0, 0, 0, 0.4);
+
+        padding: 18px;
+
+        font-size: 16px;
+        text-align: no-warp;
+        line-height: 27px;
+      }
+
+      .card-content > p:first-child::first-letter {
+        float: left;
+        font-family: Georgia;
+        font-size: 60px;
+        line-height: 54px;
+        padding-right: 8px;
+        padding-left: 3px;
+      }
+    </style>
+    <app-header-layout>
+      <app-header slot="header"  condenses reveals effects="resize-title">
+        <app-toolbar>
+          <a href="#/home" tabindex="-1">
+            <paper-icon-button icon="icons:arrow-back"></paper-icon-button>
+          </a>
+          <div main-title>6 Ferramentas para procurar emprego que você provavelmente ignora</div>
+        </app-toolbar>
+      </app-header>
+      <div class="card-container">
+        <div class="card-content">
+          <p>Saber onde procurar trabalho as vezes é uma dor de cabeça, sem contar que estamos rodeados de muitas ferramentas e enviamos currículos para todos os pontos possíveis. Neste artigo listamos 6 ferramentas que podem ser usadas para procurar o seu trabalho com dedicação, tranquilidade e obter bons resultados.</p>
+          <ol>
+            <li><b>LinkedIn:</b> uma ferramenta poderosa para expor as suas qualidades como empresário, profissional de uma área específica e até um excelente estudante, todos os grandes olhos estão no Linkedin e se procuras trabalhar numa empresa específica então o Linkedin é o caminho certo para entrar em contacto com qualquer um que trabalhe lá, é só saber usar o seu charme;</li>
+            <li><b>Instagram:</b> para fotografos, vendedores, confeiteiras, designers, para exibir qualquer serviço, o Instagram é a ferramenta certa para criar o seu portfolio, as fotografias, e os vídeos bem preparados chamam a atenção de quem procura os serviços que tem a oferecer;</li>
+            <li><b>JobArtis:</b> é uma feramenta de busca de empregos angolana, a essência passa por deixar o seu currículo actualizado disponível na plataforma, e deixar que vários recrutadores tenham acesso a ele, se o currículo estiver bem preparado (pode verificar  como preparar um cv eficiente aqui) a sorte com certeza bate a sua porta;</li>
+            <li><b>WhatsApp:</b> sim o WhatsApp, anúncios de vagas de emprego, as especificações do que procuram de modo geral, passam por vários grupos do WhatsApp, e até reenviado para contactos em particular. É simples, rápido e as vezes sem custo. Então se tens um smartphone, talvez queiras experimentar usaá-lo para manter-se em contacto com as pessoas certas.</li>
+            <li><b>Jornal:</b> apesar de novas tecnologias e a internet, o jornal sempre nos ajuda quando as ferramentas referidas acima não estão a mão, o WhatsApp partilha maioritariamente anúncios de grandes empresas, bancos e empresas de tecnologias, por outro lado o jornal apresenta vagas e resultados para o sector público tal como educação, medicina e outros. Então se este é o teu alvo, tenha sempre um jornal a mão.</li>
+            <li><b>Pessoas:</b> rodeie-se de pessoas que estão conectadas no mundo do negócio,  que conheçam outras pessoas que possam interessar-se pelas suas qualidades, e possam indicar-te para uma oportunidade de trabalho. Cultive sempre boas relações por onde quer passe.</li>
+          </ol>
+          <p>Estas ferramenta são muito úteis quando se tem um alvo em mente, não adianta utilizar uma e esperar um resultado diferente daquilo que cada uma oferece.</p>
+          <p>Boa sorte!</p>
+        </div>
+      </div>
+    </app-header-layout>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class BlogPost extends Polymer.Element {
+      static get is() { return 'blog-post'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'blog-post'
+          }
+        };
+      }
+
+      ready() {
+        super.ready();
+
+        this.style.backgroundImage = 'url(http://dicasdemprego.com/wp-content/uploads/2018/04/olu-eletu-134758-unsplash-1024x654.jpg)'
+      }
+    }
+
+    window.customElements.define(BlogPost.is, BlogPost);
+  </script>
+</dom-module>

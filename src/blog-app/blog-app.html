@@ -1,0 +1,40 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="./blog-post.html">
+<link rel="import" href="./blog-post-list-item.html">
+
+<dom-module id="blog-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+
+        height: 100%;
+      }
+    </style>
+    <blog-post-list-item></blog-post-list-item>
+    <blog-post-list-item></blog-post-list-item>
+    <blog-post-list-item></blog-post-list-item>
+    <blog-post-list-item></blog-post-list-item>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class BlogApp extends Polymer.Element {
+      static get is() { return 'blog-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'blog-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(BlogApp.is, BlogApp);
+  </script>
+</dom-module>

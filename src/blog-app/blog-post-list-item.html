@@ -1,0 +1,51 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+
+<dom-module id="blog-post-list-item">
+  <template>
+    <style>
+      :host {
+        display: block;
+
+        height: 100%;
+
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+    </style>
+
+    <div class="card-container">
+      <div class="card-content">
+      </div>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class BlogPostListItem extends Polymer.Element {
+      static get is() { return 'blog-post-list-item'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'blog-post-list-item'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(BlogPostListItem.is, BlogPostListItem);
+  </script>
+</dom-module>
