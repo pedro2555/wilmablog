@@ -1,0 +1,55 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
+
+<link rel="import" href="./blog-post-list-item.html">
+
+<dom-module id="blog-post-list">
+  <template>
+    <style>
+      :host {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      iron-list {
+        flex: 1 1 auto;
+      }
+    </style>
+    <iron-list items="[[items]]">
+      <template>
+        <blog-post-list-item title="[[item.title]]" img="[[item.img]]"></blog-post-list-item>
+      </template>
+    </iron-list>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class BlogPostList extends Polymer.Element {
+      static get is() { return 'blog-post-list'; }
+      static get properties() {
+        return {
+          items: {
+            type: Array,
+            value: [
+              {
+                "title": "6 Ferramentas para procurar emprego que você provavelmente ignora",
+                "img": "http://dicasdemprego.com/wp-content/uploads/2018/04/olu-eletu-134758-unsplash-1024x654.jpg"
+              },
+              {
+                "title": "10 Perguntas mais frequentes em uma entrevista de emprego",
+                "img": "http://dicasdemprego.com/wp-content/uploads/2018/03/WhatsApp-Image-2018-03-14-at-4.54.05-PM-1024x502.jpeg"
+              }
+            ]
+          }
+        };
+      }
+    }
+
+    window.customElements.define(BlogPostList.is, BlogPostList);
+  </script>
+</dom-module>

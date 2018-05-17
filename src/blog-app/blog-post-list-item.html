@@ -11,17 +11,14 @@
         display: block;
         position: relative;
         max-width: 500px;
-        max-height: 500px;
+        max-height: 300px;
 
         overflow: hidden;
         font-family: Georgia;
+
+        cursor: pointer;
       }
-      a {
-        display: block;
-        max-width: 500px;
-        max-height: 500px;
-      }
-      a:hover #title {
+      :host(:hover) #title {
         bottom: 0;
       }
       iron-image {
@@ -33,7 +30,7 @@
         z-index: -1;
       }
       #title {
-        bottom: -20%;
+        bottom: -24%;
         position: absolute;
 
         width: 476px;
@@ -48,15 +45,13 @@
         display: block;
       }
     </style>
-    <a href="https://www.google.com/">
-      <div id="title">
-        <h1>6 Ferramentas para procurar emprego que você provavelmente ignora</h1>
-      </div>
-      <iron-image alt="image alt text"
-                  src="http://dicasdemprego.com/wp-content/uploads/2018/04/olu-eletu-134758-unsplash-1024x654.jpg"
-                  sizing="cover">
-      </iron-image>
-    </a>
+    <div id="title">
+      <h1>[[title]]</h1>
+    </div>
+    <iron-image alt="[[title]]"
+                src="[[img]]"
+                sizing="cover">
+    </iron-image>
   </template>
 
   <script>
@@ -68,10 +63,8 @@
       static get is() { return 'blog-post-list-item'; }
       static get properties() {
         return {
-          prop1: {
-            type: String,
-            value: 'blog-post-list-item'
-          }
+          title: String,
+          img: String
         };
       }
     }
