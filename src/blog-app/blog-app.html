@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/app-route/app-route.html">
 <link rel="import" href="../../bower_components/app-route/app-location.html">
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
@@ -16,6 +17,11 @@
         height: 100%;
       }
     </style>
+    <iron-ajax auto
+               url="data/posts.json"
+               handle-as="json"
+               last-response="{{posts}}"
+               debounce-duration="300"></iron-ajax>
     <app-location route="{{route}}"
                   use-hash-as-path>
     </app-location>
@@ -24,8 +30,14 @@
                data="{{pageData}}">
     </app-route>
     <iron-pages selected="{{pageData.page}}" attr-for-selected="page">
-      <blog-post-list page="list"></blog-post-list>
-      <blog-post page="post"></blog-post>
+      <blog-post-list page="list"
+                      posts="[[posts]]"
+                      selected-post="{{selectedPost}}">
+      </blog-post-list>
+      <blog-post page="post"
+                 posts="[[posts]]"
+                 selected="{{selectedPost}}">
+      </blog-post>
     </iron-pages>
   </template>
 

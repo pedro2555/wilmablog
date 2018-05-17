@@ -6,6 +6,7 @@
 <link rel="import" href="../../bower_components/app-layout/app-scroll-effects/effects/resize-title.html">
 <link rel="import" href="../../bower_components/iron-image/iron-image.html">
 <link rel="import" href="../../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
 
 <link rel="import" href="./blog-post-list-item.html">
 
@@ -41,13 +42,13 @@
           </iron-image>
         </app-toolbar>
       </app-header>
-      <iron-list items="[[items]]">
-        <template>
-          <blog-post-list-item title="[[item.title]]"
-                               img="[[item.img]]">
-          </blog-post-list-item>
-        </template>
-      </iron-list>
+      <iron-selector attr-for-selected="postId" selected="selectedPost">
+        <iron-list items="[[posts]]">
+          <template>
+            <blog-post-list-item post="[[item]]"></blog-post-list-item>
+          </template>
+        </iron-list>
+      </iron-selector>
     </app-header-layout>
   </template>
 
@@ -60,18 +61,12 @@
       static get is() { return 'blog-post-list'; }
       static get properties() {
         return {
-          items: {
-            type: Array,
-            value: [
-              {
-                "title": "6 Ferramentas para procurar emprego que você provavelmente ignora",
-                "img": "http://dicasdemprego.com/wp-content/uploads/2018/04/olu-eletu-134758-unsplash-1024x654.jpg"
-              },
-              {
-                "title": "10 Perguntas mais frequentes em uma entrevista de emprego",
-                "img": "http://dicasdemprego.com/wp-content/uploads/2018/03/WhatsApp-Image-2018-03-14-at-4.54.05-PM-1024x502.jpeg"
-              }
-            ]
+          posts: {
+            type: Array
+          },
+          selectedPost: {
+            type: String,
+            reflectedToAttribute: true
           }
         };
       }

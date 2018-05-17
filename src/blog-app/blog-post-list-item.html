@@ -45,13 +45,15 @@
         display: block;
       }
     </style>
-    <div id="title">
-      <h1>[[title]]</h1>
-    </div>
-    <iron-image alt="[[title]]"
-                src="[[img]]"
-                sizing="cover">
-    </iron-image>
+    <a href="#/post/{{post._id}}">
+      <div id="title">
+        <h1>[[post.title]]</h1>
+      </div>
+      <iron-image alt="[[post.title]]"
+                  src="[[post.img]]"
+                  sizing="cover">
+      </iron-image>
+    </a>
   </template>
 
   <script>
@@ -63,8 +65,10 @@
       static get is() { return 'blog-post-list-item'; }
       static get properties() {
         return {
-          title: String,
-          img: String
+          post: {
+            type: Object,
+            reflectedToAttribute: true
+          }
         };
       }
     }
