@@ -1,5 +1,10 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/app-layout/app-scroll-effects/effects/resize-title.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
 <link rel="import" href="../../bower_components/iron-list/iron-list.html">
 
 <link rel="import" href="./blog-post-list-item.html">
@@ -8,20 +13,42 @@
   <template>
     <style>
       :host {
+        width: 100%;
         height: 100vh;
         display: flex;
         flex-direction: column;
       }
-
       iron-list {
+        margin: 0 auto;
         flex: 1 1 auto;
       }
+      app-header {
+        background-color: black;
+      }
+      app-header > app-toolbar > iron-image {
+        width: 96px;
+        height: 96px;
+        margin: 36px auto 0;
+        cursor: pointer;
+      }
     </style>
-    <iron-list items="[[items]]">
-      <template>
-        <blog-post-list-item title="[[item.title]]" img="[[item.img]]"></blog-post-list-item>
-      </template>
-    </iron-list>
+    <app-header-layout>
+      <app-header slot="header"  condenses reveals effects="resize-title">
+        <app-toolbar>
+          <iron-image alt=""
+                      src="http://dicasdemprego.com/wp-content/uploads/2018/04/3CCFB6A2-F94C-4F1E-A72D-AC0FCEB4B4A6.png"
+                      sizing="cover">
+          </iron-image>
+        </app-toolbar>
+      </app-header>
+      <iron-list items="[[items]]">
+        <template>
+          <blog-post-list-item title="[[item.title]]"
+                               img="[[item.img]]">
+          </blog-post-list-item>
+        </template>
+      </iron-list>
+    </app-header-layout>
   </template>
 
   <script>
