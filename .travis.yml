@@ -1,0 +1,29 @@
+dist: trusty
+sudo: false
+group: beta
+
+language: node_js
+node_js:
+- node
+cache:
+  directories:
+  - node_modules
+  - "$HOME/.cache/bower"
+before_install:
+- "if [ -d node_modules ] && [ x$(cat node_modules/.last-node-version 2>/dev/null) != x$(node -e 'console.log(process.version)') ]; then npm rebuild --update-binary && node -e 'console.log(process.version)' > node_modules/.last-node-version; fi"
+before_script:
+- npm install -g polymer-cli bower
+- bower install
+script:
+- polymer build
+after_success:
+- wget -O build/github.io/README.md https://raw.githubusercontent.com/pedro2555/wilmablog/master/README.md
+deploy:
+  provider: pages
+  local-dir: build/github.io
+  repo: pedro2555/wilmablogpreview
+  target-branch: master
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: master

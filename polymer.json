@@ -1,7 +1,33 @@
 {
+  "entrypoint": "index.html",
+  "shell": "src/blog-app/blog-app.html",
+  "fragments": [],
+  "sources": [
+    "src/**/*",
+    "data/**/*"
+  ],
+  "extraDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/*.js"
+  ],
   "lint": {
-    "rules": [
-      "polymer-2"
-    ]
-  }
+    "rules": ["polymer-2"]
+  },
+  "builds": [
+    {
+      "name": "heroku",
+      "bundle": true,
+      "js": {"minify": true},
+      "css": {"minify": true},
+      "html": {"minify": true}
+    },
+    {
+      "name": "github.io",
+      "bundle": true,
+      "js": {"minify": true},
+      "css": {"minify": true},
+      "html": {"minify": true},
+      "basePath": "wilmablogpreview"
+    }
+  ]
 }
